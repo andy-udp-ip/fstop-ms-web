@@ -5,7 +5,7 @@
 	<groupId>tw.com.fstop</groupId>
 	<artifactId>fstop-ms-web</artifactId>
 	<version>1.0.1-SNAPSHOT</version>
-	<packaging>jar</packaging>
+	<packaging>war</packaging>
 
 	<name>fstop-ms-web</name>
 	<description>fstop-ms-web application.</description>
@@ -46,7 +46,8 @@
       	<java.source.version>1.8</java.source.version>
       	<java.target.version>1.8</java.target.version>
 	  	<maven.test.redirectTestOutputToFile>true</maven.test.redirectTestOutputToFile>		
-	  	<github.global.server>github</github.global.server>		
+	  	<github.global.server>github</github.global.server>	
+	  	
 	</properties>
 
     <scm>
@@ -196,33 +197,36 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-actuator</artifactId>
 		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-security</artifactId>
-		</dependency>
+		
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 		
 		<!-- To build a war file that is both executable and deployable into an external container.  -->
-		<!-- 
+		<!--  
 		<dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-tomcat</artifactId>
             <scope>provided</scope>
         </dependency>
-        -->
-		
+		-->
+
+		<!-- 需要 tomcat embed 否則 404 -->  
+		<dependency>
+			<groupId>org.apache.tomcat.embed</groupId>
+			<artifactId>tomcat-embed-jasper</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		        		
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+		</dependency>		
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.security</groupId>
-			<artifactId>spring-security-test</artifactId>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
