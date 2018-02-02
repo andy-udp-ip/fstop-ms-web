@@ -18,21 +18,35 @@ import java.util.Map;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
+import lombok.extern.slf4j.Slf4j;
+import tw.com.fstop.app.model.User;
+import tw.com.fstop.app.service.UserService;
+import tw.com.fstop.common.ValidateException;
+
+@Slf4j
 @Controller
 public class DemoController
 {
-    private static final Logger log = LoggerFactory.getLogger(DemoController.class);
+    //private static final Logger log = LoggerFactory.getLogger(DemoController.class);
+    
+    @Autowired
+    UserService userService;
     
     @GetMapping("/")
-    public String demo(Map<String, Object> model)
+    public String demo(@RequestParam("id") String id, Map<String, Object> model) throws ValidateException
     {
-        log.debug("demo");
+        log.debug("demo={}", id);
+        
+        User user = userService.getUserById(id);
         
         model.put("time", new Date());
         model.put("message", "demo demo");
+        model.put("user", user);
         return "demo";
     }
 }

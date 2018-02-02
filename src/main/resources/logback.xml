@@ -69,5 +69,13 @@
 		<appender-ref ref="CONSOLE" />
 		<appender-ref ref="DRF" />  
 	</logger>
+	<logger name="tw.com.fstop.app.service.UserServiceImpl" level="DEBUG" additivity="false">
+		<appender-ref ref="CONSOLE" />
+		<appender-ref ref="DRF" />  
+	</logger>
+	<logger name="tw.com.fstop.app.gateway.UserGateway" level="DEBUG" additivity="false">
+		<appender-ref ref="CONSOLE" />
+		<appender-ref ref="DRF" />  
+	</logger>
 	
 </configuration>

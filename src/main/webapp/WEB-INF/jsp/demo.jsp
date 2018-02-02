@@ -18,6 +18,8 @@
 	JSTL URL: ${url}
 	<br>
 	Message: ${message}
+	<br>
+	User: ${user}
 	
 	<script type="text/javascript" src="/js/AP_demo.js"></script>
 </body>
