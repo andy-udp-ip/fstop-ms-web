@@ -21,7 +21,7 @@
 	<br>
 	User: ${user}
 	
-	<script type="text/javascript" src="/js/AP_demo.js"></script>
+	<script type="text/javascript" src="js/AP_demo.js"></script>
 </body>
 
 </html>

@@ -1,5 +1,5 @@
-<server description="new server">    
-    <webApplication id="fstop-ms-web" location="fstop-ms-web-1.0.1-SNAPSHOT.war" name="fstop-ms-web"/>
+<server description="new server">
+    <webApplication id="fstop-ms-web" location="fstop-ms-web-1.0.1-SNAPSHOT.war" name="fstop-ms-web"/> 
     <webContainer invokeFlushAfterService="false"/>
 </server>
 

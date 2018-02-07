@@ -199,22 +199,13 @@
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 		
-		<!-- To build a war file that is both executable and deployable into an external container.  -->
-		<!--  
-		<dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-tomcat</artifactId>
-            <scope>provided</scope>
-        </dependency>
-		-->
-
-		<!-- 需要 tomcat embed 否則 404 -->  
+		<!-- 做成獨立執行的jar或war檔時 需要 tomcat embed 否則 404 -->  		 
 		<dependency>
 			<groupId>org.apache.tomcat.embed</groupId>
 			<artifactId>tomcat-embed-jasper</artifactId>
 			<scope>provided</scope>
 		</dependency>
-		        		
+				         		
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>jstl</artifactId>
