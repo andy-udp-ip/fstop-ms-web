@@ -1,0 +1,6 @@
+FROM wlp:admin
+COPY server.xml /config/server.xml
+RUN sh -c 'mkdir -p /config/configDropins/overrides'
+COPY custom-cfg.xml /config/configDropins/overrides/
+ADD *.war /config/dropins/
+#EXPOSE 80 9080 9448 9443 9060
