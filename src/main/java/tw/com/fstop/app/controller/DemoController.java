@@ -48,8 +48,8 @@ public class DemoController
     {
         log.debug("demo={}", id);
 
-        //User user = userService.getUserById(id);
-        User user = new User();
+        User user = userService.getUserById(id);
+        //User user = new User();
 
         model.put("time", new Date());
         model.put("message", "demo demo");

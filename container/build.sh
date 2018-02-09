@@ -1,3 +1,3 @@
 #!/bin/sh
-docker build -t wlp:custom .
+docker build -t wlp:app .
 
