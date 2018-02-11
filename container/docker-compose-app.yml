@@ -1,0 +1,87 @@
+version: "3"
+services:
+  app:
+    image: andylee1973/wlp-app
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          cpus: "0.5"
+          memory: 1000M
+      # any, none, on-failure
+      restart_policy:
+        condition: none
+      placement:
+        constraints: 
+          #- node.role == manager
+          - node.labels.tw.com.fstop.node.role == web
+      labels:
+        tw.com.fstop.app.desc: "wlp app"    
+    environment:
+      - SERVICE_HOST=service        
+    ports:
+      - "80:9080"
+      - "443:9443"
+    networks:
+      - webnet
+
+  service:
+    image: andylee1973/service
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          cpus: "0.5"
+          memory: 1000M
+      # any, none, on-failure
+      restart_policy:
+        condition: none
+      placement:
+        constraints:
+          #- node.role == manager
+          - node.labels.tw.com.fstop.node.role == service
+      labels:
+        tw.com.fstop.app.desc: "demo service"    
+    environment:
+      - MONGO_DB_HOST=backend        
+    ports:
+      - "9010:9010"
+    networks:
+      - webnet
+
+  backend:
+    image: andylee1973/backend
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          cpus: "0.5"
+          memory: 1000M
+      # any, none, on-failure
+      restart_policy:
+        condition: none
+      placement:
+        constraints:
+          #- node.role == manager
+          - node.labels.tw.com.fstop.node.role == backend
+      labels:
+        tw.com.fstop.app.desc: "demo backend"    
+    ports:
+      - "50460:50460"
+    networks:
+      - webnet
+      
+  #  
+  visualizer:
+    image: dockersamples/visualizer:stable
+    ports:
+      - "9090:8080"
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock"
+    deploy:
+      placement:
+        constraints: [node.role == manager]
+    networks:
+      - webnet      
+networks:
+  webnet:
