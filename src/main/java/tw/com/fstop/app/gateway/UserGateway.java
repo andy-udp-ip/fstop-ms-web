@@ -25,10 +25,17 @@ import tw.com.fstop.app.model.User;
 import tw.com.fstop.common.ValidateException;
 import tw.com.fstop.common.Validations;
 
+/**
+ * 請求外部服務的實際 Gateway 類別
+ * 
+ *
+ * @since 1.0.1
+ */
 @Slf4j
 @Component
 public class UserGateway
 {
+    
     @Autowired
     RestTemplate restTemplate;
     
