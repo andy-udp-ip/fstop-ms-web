@@ -29,6 +29,13 @@ import tw.com.fstop.common.ValidateException;
  * Handler function 的 exception parameter 類型必需與 annotation 所指定的 exception 類型相同，
  * 或是 annotation 所指定的 exception 的父類別.
  *
+ * <pre>
+ * @ControllerAdvice
+ *   Specialization of @Component for classes that declare @ExceptionHandler, @InitBinder, or @ModelAttribute 
+ *   methods to be shared across multiple @Controller classes.
+ * </pre>
+ *
+ *
  * @since 1.0.1
  */
 @Slf4j
